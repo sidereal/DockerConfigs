@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  busyboxA:
+    container_name: busyboxA
+    image: 'busybox:latest'
+    tty: true
+  busyboxB:
+    container_name: busyboxB
+    image: 'busybox:latest'
+    tty: true
+
+
+networks:
+   default:
+      external:
+         name: stuart
+    

@@ -1,0 +1,18 @@
+#https://itnext.io/how-to-install-kafka-using-docker-a2b7c746cbdc
+
+#use konductor to manage kafka
+#docker-compose.yml builds zookeeper & kafka
+#if deleted a cluster will have to be recreated
+
+#how to set up a test producer and consumer in docker
+docker run --name kproducer --network 2020_kafka-net --rm -it confluentinc/cp-kafka bash
+docker run --name kconsumer --network 2020_kafka-net --rm -it confluentinc/cp-kafka bash
+
+kafka-console-producer --broker-list kafka-server1:19092 --topic stuart
+kafka-console-consumer --bootstrap-server kafka-server1:19092 --topic stuart --group mygroup
+
+
+docker-compose -p Realtime up -d
+
+To make my network >
+docker network create --driver=bridge --subnet=172.100.0.0/16 stuart
