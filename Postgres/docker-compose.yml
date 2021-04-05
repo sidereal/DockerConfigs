@@ -4,10 +4,16 @@ networks:
       external:
          name: stuart
 
+volumes:
+    postgres_data:
+      external: true
+
 services: 
   postgres:
     image: 'postgres:latest'
     container_name: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment: 

@@ -16,3 +16,7 @@ docker-compose -p Realtime up -d
 
 To make my network >
 docker network create --driver=bridge --subnet=172.100.0.0/16 stuart
+
+To make database volumes > 
+docker volume create sqlserver_data
+docker volume create postgres_data
