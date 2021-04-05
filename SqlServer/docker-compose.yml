@@ -4,19 +4,22 @@ networks:
       external:
          name: stuart
 
+volumes:
+    sqlserver_data:
+      external: true
+
 services: 
-  postgres:
-    image: 'postgres:latest'
-    container_name: postgres
+  sqlserver:
+    image: 'mcr.microsoft.com/mssql/server:latest'
+    container_name: sqlserver
+    volumes:
+      - sqlserver_data:/var/opt/mssql
     ports:
-      - "5432:5432"
+      - "1533:1433"
     environment: 
-      - POSTGRES_PASSWORD=password
-  pgadmin4:
-    image: 'dpage/pgadmin4'
-    container_name: pgadmin4
-    ports:
-      - "8080:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=x@y.com
-      - PGADMIN_DEFAULT_PASSWORD=1
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P4ssword$$
+
+  # /var/lib/docker/volumes/sqlserver_data/_data
+  # /VAR/OPT/MSSQL
+  # sqlserver_data
