@@ -13,13 +13,9 @@ services:
     image: 'mcr.microsoft.com/mssql/server:latest'
     container_name: sqlserver
     volumes:
-      - sqlserver_data:/var/opt/mssql
+      - sqlserver_data:/var/opt/mssql  # persistence volume
     ports:
       - "1533:1433"
     environment: 
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=P4ssword$$
-
-  # /var/lib/docker/volumes/sqlserver_data/_data
-  # /VAR/OPT/MSSQL
-  # sqlserver_data
+      - ACCEPT_EULA=Y  # required
+      - SA_PASSWORD=P4ssword$$  # some default value required

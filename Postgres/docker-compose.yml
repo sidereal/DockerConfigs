@@ -13,16 +13,16 @@ services:
     image: 'postgres:latest'
     container_name: postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data # persistence volume
     ports:
       - "5432:5432"
     environment: 
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=password # some default value required
   pgadmin4:
     image: 'dpage/pgadmin4:latest'
     container_name: pgadmin4
     ports:
       - "8080:80"
     environment:
-      - PGADMIN_DEFAULT_EMAIL=x@y.com
-      - PGADMIN_DEFAULT_PASSWORD=1
+      - PGADMIN_DEFAULT_EMAIL=x@y.com # some default value required
+      - PGADMIN_DEFAULT_PASSWORD=1 # some default value required

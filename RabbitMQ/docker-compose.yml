@@ -1,14 +1,21 @@
 version: '3'
 
-services:
-  rabbitmq:
-    container_name: rabbit
-    image: rabbitmq:3-management
-    ports:
-      - 5672:5672
-      - 15672:15672
+volumes:
+    rabbit_data:
+      external: true
 
 networks:
    default:
       external:
          name: stuart
+
+services:
+  rabbitmq:
+    container_name: rabbit
+    hostname: rabbit # required for rabbit config
+    image: rabbitmq:3-management
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq # persistence volume
+    ports:
+      - 5672:5672 # io
+      - 15672:15672 # management
