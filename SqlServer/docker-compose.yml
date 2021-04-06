@@ -1,12 +1,13 @@
 version: '3'
+
 networks:
-   default:
-      external:
-         name: stuart
+  default:
+    external:
+      name: stuart
 
 volumes:
-    sqlserver_data:
-      external: true
+  sqlserver_data:
+    external: true
 
 services: 
   sqlserver:

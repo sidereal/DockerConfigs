@@ -1,0 +1,23 @@
+version: '3'
+
+volumes:
+  activemq_conf:
+    external: true
+  activemq_data:
+    external: true
+
+networks:
+  default:
+    external:
+      name: stuart
+
+services:
+  activemq:
+    container_name: activemq
+    image: rmohr/activemq:latest
+    volumes:
+      - activemq_conf:/opt/activemq/conf # persistence volume
+      - activemq_data:/opt/activemq/data # persistence volume
+    ports:
+      - 1616:61616 # io (remapped because 61616 is not available on my pc)
+      - 8161:8161 # management

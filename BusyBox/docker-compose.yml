@@ -1,5 +1,10 @@
 version: '3'
 
+networks:
+  default:
+    external:
+      name: stuart
+
 services:
   busyboxA:
     container_name: busyboxA
@@ -11,8 +16,5 @@ services:
     tty: true
 
 
-networks:
-   default:
-      external:
-         name: stuart
+
     

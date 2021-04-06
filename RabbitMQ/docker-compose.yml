@@ -1,13 +1,13 @@
 version: '3'
 
-volumes:
-    rabbit_data:
-      external: true
-
 networks:
-   default:
-      external:
-         name: stuart
+  default:
+     external:
+        name: stuart
+
+volumes:
+  rabbit_data:
+    external: true
 
 services:
   rabbitmq:
