@@ -7,6 +7,8 @@ networks:
 volumes:
     postgres_data:
       external: true
+    pgadmin_data:
+      external: true
 
 services: 
   postgres:
@@ -21,8 +23,10 @@ services:
   pgadmin4:
     image: 'dpage/pgadmin4:latest'
     container_name: pgadmin4
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin # persistence volume
     ports:
       - "8080:80"
     environment:
-      - PGADMIN_DEFAULT_EMAIL=x@y.com # some default value required
+      - PGADMIN_DEFAULT_EMAIL=x@y.com # some default value required, must be an email address
       - PGADMIN_DEFAULT_PASSWORD=1 # some default value required
