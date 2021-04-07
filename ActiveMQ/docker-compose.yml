@@ -19,5 +19,6 @@ services:
       - activemq_conf:/opt/activemq/conf # persistence volume
       - activemq_data:/opt/activemq/data # persistence volume
     ports:
-      - 1616:61616 # io (remapped because 61616 is not available on my pc)
+      - 1616:61616 # ACMQ (remapped because 61616 is not available on my pc)
+      - 1613:61613 # STOMP (remapped because 61616 is not available on my pc)
       - 8161:8161 # management
