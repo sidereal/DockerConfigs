@@ -19,4 +19,4 @@ services:
       - "1533:1433"
     environment: 
       - ACCEPT_EULA=Y  # required
-      - SA_PASSWORD=P4ssword$$  # some default value required
+      - SA_PASSWORD=P4ssword$$  # some default value required (Note that $$ is a placeholder for a single literal $)
