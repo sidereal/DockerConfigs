@@ -22,6 +22,7 @@ docker volume create sqlserver_data
 docker volume create postgres_data
 docker volume create pgadmin_data
 docker volume create rabbit_data
+docker volume create mongo_data
 
 docker volume create activemq_data
 docker volume create activemq_conf
