@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: stuart
+
+volumes:
+  seqserver_data:
+    external: true
+
+services: 
+  seqserver:
+    image: 'datalust/seq:latest'
+    container_name: seqserver
+    volumes:
+      - seqserver_data:/data  # persistence volume
+    ports:
+      - "5340:80"
+      - "5341:5341"
+    environment: 
+      - ACCEPT_EULA=Y  # required
