@@ -26,3 +26,4 @@ docker volume create mongo_data
 
 docker volume create activemq_data
 docker volume create activemq_conf
+docker volume create seqserver_data
